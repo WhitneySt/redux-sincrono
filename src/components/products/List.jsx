@@ -1,9 +1,19 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteProduct } from '../../redux/actions/productActions'
 
 export const List = () => {
 
   const products = useSelector((state) => state.products)
+  const dispatch = useDispatch();
+
+  const handleDelete = (idProduct) => {
+    dispatch(deleteProduct(idProduct))
+  }
+
+  const handleEdit = (idProduct) => {
+    
+  }
 
   return (
     <div>
@@ -24,7 +34,10 @@ export const List = () => {
                 <td>{product.name}</td>
                 <td>{product.price}</td>
                 <td>{product.quantity}</td>
-                <td>X</td>
+                <td>
+                  <span onClick={() => {handleDelete(product.id)}}>❌</span>
+                  <span onClick={() => {handleEdit(product.id)}}>✏️</span>
+                </td>
               </tr>
             ))
           }

@@ -29,7 +29,9 @@ const Form = () => {
       <form
         style={{
           display: 'flex',
-          flexDirection: 'column'
+          flexDirection: 'column',
+          gap: 5,
+          maxWidth: 400
         }}
         onSubmit={handleSubmit}
       >
